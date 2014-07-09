@@ -38,9 +38,7 @@ module Theatre
 
 		def initialize(name,gender,age)
 			raise ArgumentError unless GENDER.include? gender
-			@name = name			
-			@gender = gender
-			@age = age
+			@name, @gender, @age = name, gender, age
 		end
 
 	end
@@ -58,12 +56,12 @@ module Theatre
 		end
 
 		def max_suitable_role
-			performances.max_by {|p| p.mark}
+			performances.max_by {| p| p.mark }
 		end
 
 		def total_length 
-			performances.inject(0) {|sum,p| sum += p.length}
-		end
+			performances.inject(0) { |sum,p| sum += p.length }
+		end 
 
 	end
 
@@ -95,10 +93,7 @@ module Theatre
 
 		def initialize(actor,role,theme,length,speech)
 			raise TypeError, "#{actor.name} doesn't suit #{role.name} role" unless check_role(actor,role)
-			@role = role
-			@theme = theme
-			@length = length
-			@speech = speech
+			@role, @theme, @length, @speech = role,theme,length,speech
 			@mark = Theatre::Committee.total_mark(actor,self)
 			puts "#{actor.name} total mark for #{role.name}:#{@mark}"
 			actor.performances << self
