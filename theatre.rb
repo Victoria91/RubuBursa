@@ -77,7 +77,7 @@ module Theatre
 			if gender == 'm'
 				actor.gender == 'f' && actor.age.between?(18,25) ? rand(7..10) : rand(0..10)
 			else
-				performance.speech.length > 30 ? rand(0..10) :  rand(0..7)
+				performance.speech.split.length > 30 ? rand(0..10) :  rand(0..7)
 			end
 		end
 
