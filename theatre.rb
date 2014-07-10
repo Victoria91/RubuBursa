@@ -56,7 +56,7 @@ module Theatre
 		end
 
 		def max_suitable_role
-			performances.max_by {| p| p.mark }
+			performances.max_by { | p| p.mark }
 		end
 
 		def total_length 
@@ -82,7 +82,7 @@ module Theatre
 		end
 
 		def self.total_mark(actor,performance)
-			sum = @@committee.inject(0) {|sum, c| sum += c.mark(actor,performance)}
+			sum = @@committee.inject(0) { |sum, c| sum += c.mark(actor,performance) }
 			sum.to_f/@@committee.length
 		end
 
